@@ -64,6 +64,7 @@ const addLikeFB = (post_id) => {
       user_name: user_info.user_name,
       post_id: post_id,
       user_id: user_info.uid,
+      user_profile: user_info.user_profile,
       insert_dt: moment().format("YYYY-MM-DD hh:mm:ss"),
     };
 
@@ -88,6 +89,29 @@ const addLikeFB = (post_id) => {
                 like_cnt: parseInt(post.like_cnt) + 1,
               })
             );
+
+            const _noti_item = realtime
+            .ref(`noti/${post.user_info.user_id}/list`)
+            .push();
+          _noti_item.set(
+            {
+              post_id: post.id,
+              user_name: user_info.user_name,
+              image_url: post.image_url,
+              insert_dt: like.insert_dt,
+              is_like: true
+            },
+            (err) => {
+              if (err) {
+                console.log("알림 저장에 실패했어요 8ㅛ8");
+              } else {
+                const notiDB = realtime.ref(`noti/${post.user_info.user_id}`);
+                if (like.user_id !== post.user_info.user_id) {
+                  notiDB.update({ read: false });
+                }
+              }
+            }
+          );
           }
         });
     });

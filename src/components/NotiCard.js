@@ -5,7 +5,7 @@ import { history } from "../redux/configureStore";
 
 const NotiCard = (props) => {
   console.log(props);
-  const { image_url, user_name, post_id } = props;
+  const { image_url, user_name, post_id, is_like, is_comment } = props;
   return (
     <Grid
       _onClick={() => {
@@ -21,7 +21,9 @@ const NotiCard = (props) => {
       </Grid>
       <Grid>
         <Text>
-          <strong>{user_name}</strong> 님이 게시글에 댓글을 남겼습니다
+          {is_comment && <span><strong>{user_name}</strong> 님이 게시글에 댓글을 남겼습니다</span> }
+          
+          {is_like && <span><strong>{user_name}</strong> 님이 게시글에 좋아요를 남겼습니다</span> }
         </Text>
       </Grid>
     </Grid>
@@ -32,6 +34,8 @@ NotiCard.defaultProps = {
   image_url: "",
   user_name: "",
   post_id: null,
+  is_like: false,
+  is_comment: false,
 };
 
 export default NotiCard;

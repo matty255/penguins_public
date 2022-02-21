@@ -71,6 +71,7 @@ const addCommentFB = (post_id, comment) => {
                 user_name: new_comment.user_name,
                 image_url: post.image_url,
                 insert_dt: new_comment.insert_dt,
+                is_comment: true,
               },
               (err) => {
                 if (err) {
