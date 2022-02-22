@@ -5,6 +5,9 @@
 - step 2. mop API 적용으로 더미데이터와 연결할 수 있게 고치기
 - step 3. 완성된 백엔드와 실제로 연결해보기
 
+## step 1 완성 : 보러가기
+https://penguins-test.firebaseapp.com/
+
 <aside>
 ✅ 필수 기능 목록
     
