@@ -1,11 +1,11 @@
 import React from "react";
-import { Grid, Text, Button } from "../elements";
+import { Grid, Text, Button, NonFlexBox } from "../elements";
 
 import { history } from "../redux/configureStore";
 
 const Caution = (props) => {
   return (
-    <Grid margin="100px 0px" padding="16px" center>
+    <NonFlexBox>
       <Text size="32px" bold>
         앗 잠깐!
       </Text>
@@ -17,7 +17,7 @@ const Caution = (props) => {
       >
         로그인 하러 가기!
       </Button>
-    </Grid>
+    </NonFlexBox>
   );
 };
 

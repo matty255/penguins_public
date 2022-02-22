@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, NonFlexBox, Title, Input, Button } from "../elements";
+import { NonFlexBox, Title, Input, Button, Text } from "../elements";
 import { emailCheck } from "../shared/check";
 
 import { useDispatch } from "react-redux";
@@ -27,7 +27,8 @@ const Login = (props) => {
   return (
     <Margins>
     <NonFlexBox>
-      <Title>로그인</Title>
+      <Title>Log-in</Title>
+      <div className="mt-5"></div>
       <Input
         value={id}
         label="아이디"

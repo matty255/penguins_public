@@ -40,7 +40,8 @@ const Signup = (props) => {
   return (
     <Margins>
       <NonFlexBox>
-      <Title>회원가입</Title>
+      <Title>Sing-up</Title>
+      <div className="mt-5"></div>
       <Input
         value={id}
         label="아이디"

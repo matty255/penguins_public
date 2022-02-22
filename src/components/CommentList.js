@@ -29,18 +29,23 @@ const CommentList = (props) => {
         return <CommentItem key={comment.id} {...comment} />;
       })}
     </>
-  );
-};
+    );
+  };
 
 const CommentItem = (props) => {
   const { user_name, comment, user_profile, insert_dt } = props;
   return (
-    <Grid is_flex padding="16px">
+    <div className="flex justify-between items-center">
+      <div className="sm:flex sm:flex-row px-10 sm:justify-between">
+      <hr className="border-4 border-white" />
       <Image shape="circle" src={user_profile} />
       <Text>{user_name}</Text>
-      <Text>{comment}</Text>
+      <span className="flex-shrink-0 flex-grow min-w-1/3 p-2 mb-3 py-2 font-bold sm:bg-yellow-500 sm:bg-opacity-50 rounded-full"><Text>{comment}</Text></span>
       <Text>{insert_dt}</Text>
-    </Grid>
+      
+      </div>
+      
+    </div>
   );
 };
 

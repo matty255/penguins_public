@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Grid, Input, Button } from "../elements";
-import tw from "tailwind-styled-components";
+import { Input, Button } from "../elements";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { actionCreators as commentActions } from "../redux/modules/comment";
 
 const CommentWrite = (props) => {
@@ -21,7 +20,7 @@ const CommentWrite = (props) => {
   };
   return (
     <React.Fragment>
-    <div className="flex flex-row justify-between">
+    <div className="flex flex-row justify-between font-sanss2 text-yellow-800">
       <Input
         type="text"
         placeholder="댓글 내용을 입력하세요 :)       "

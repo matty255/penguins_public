@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, Grid, Button } from "../elements";
+import { Text } from "../elements";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
@@ -39,12 +39,12 @@ const HeartButton = (props) => {
   };
   return (
     <div className="cursor-pointer">
-      <Text _onClick={updateHeart}>
-     {toggle ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon color="error" /> } 
-      </Text>
+        <Text _onClick={updateHeart}>
+      {toggle ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon color="error" /> } 
+        </Text>
     </div>
-  );
-};
+    );
+  };
 
 
 export default HeartButton;

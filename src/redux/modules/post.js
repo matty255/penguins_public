@@ -287,9 +287,9 @@ export default handleActions(
   {
     [LOAD_POST]: (state, action) =>
       produce(state, (draft) => {
-        // draft.list.push(...action.payload.post_list);
-        // draft.paging = action.payload.paging;
-        // draft.is_loading = false;
+        draft.list.push(...action.payload.post_list);
+        draft.paging = action.payload.paging;
+        draft.is_loading = false;
         draft.list.push(...action.payload.post_list);
 
         draft.list = draft.list.reduce((acc, cur) => {

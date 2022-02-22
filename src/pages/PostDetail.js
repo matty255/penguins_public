@@ -39,7 +39,9 @@ const PostDetail = (props) => {
         <>
           <Post {...post} is_me={post.user_info.user_id === user_info?.uid} />
           {post.user_info.user_id === user_info?.uid ? (
-            <Button _onClick={deletePost}>삭제하기</Button>
+            <div className="flex justify-center items-center hover:scale-105">
+            <Button _onClick={deletePost}>Delete this Post?</Button>
+            </div>
           ) : null}
         </>
       )}

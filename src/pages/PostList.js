@@ -42,7 +42,6 @@ const PostList = (props) => {
           }
         })}
       </InfinityScroll>
-
       </div>
   );
 };

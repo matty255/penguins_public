@@ -1,5 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import tw from "tailwind-styled-components";
+
+const P = tw.p`
+  text-base text-yellow-800 font-sanss2
+`;
 
 const Text = (props) => {
   const { children, size, margin, width, bold, _onClick, is_click, center } =
@@ -32,18 +37,6 @@ Text.defaultProps = {
   center: false,
 };
 
-const P = styled.p`
-  word-break: break-all;
-  ${(props) => (props.is_click ? `cursor: pointer;` : "")}
-  font-size: ${(props) => props.size};
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
-  font-weight: ${(props) => (props.bold ? 700 : 400)};
-  ${(props) => (props.center ? `text-align: center;` : "")};
-  ${(props) => (props.width ? `width: ${props.width};` : "")};
 
-  @media (max-width: 48em) {
-    font-size: 16px;
-  }
-`;
 
 export default Text;

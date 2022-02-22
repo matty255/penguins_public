@@ -51,7 +51,7 @@ const signUpFB = (id, pwd, user_name) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         // console.log(errorCode, errorMessage)
-        alert("이메일 형식으로 작성해주세요! (비밀번호 6자 이상)");
+        alert("아이디는 이메일 형식으로 작성해주세요! (비밀번호 6자 이상)");
       });
   };
 };
