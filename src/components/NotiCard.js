@@ -1,20 +1,17 @@
 import React from "react";
-import { Grid, Image, Text } from "../elements";
+import { Grid, NonGrid, Image, Text } from "../elements";
 
 import { history } from "../redux/configureStore";
+import tw from "tailwind-styled-components"
 
 const NotiCard = (props) => {
-  console.log(props);
+  // console.log(props);
   const { image_url, user_name, post_id, is_like, is_comment } = props;
   return (
-    <Grid
+    <NonGrid
       _onClick={() => {
         history.push(`/post/${post_id}`);
       }}
-      padding="16px"
-      is_flex
-      bg="#ffffff"
-      margin="0 0 10px 0"
     >
       <Grid width="auto" margin="0 8px 0 0">
         <Image size="90" shape="small_square" src={image_url} />
@@ -26,7 +23,7 @@ const NotiCard = (props) => {
           {is_like && <span><strong>{user_name}</strong> 님이 게시글에 좋아요를 남겼습니다</span> }
         </Text>
       </Grid>
-    </Grid>
+    </NonGrid>
   );
 };
 

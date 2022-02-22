@@ -7,5 +7,6 @@ import Image from "./Image";
 import Spinner from "./Spinner";
 import NonGrid from "./NonGrid";
 import NonFlexBox from "./NonFlexBox";
+import UseConfirm from "./UseConfirm";
 
-export { Grid, NonGrid, NonFlexBox, Title, Text, Input, Button, Image, Spinner };
+export { Grid, NonGrid, NonFlexBox, UseConfirm, Title, Text, Input, Button, Image, Spinner  };

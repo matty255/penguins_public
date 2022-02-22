@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Grid } from "../elements";
+import { NonFlexBox } from "../elements";
 import NotiCard from "../components/NotiCard";
 
 import { realtime } from "../shared/firebase";
@@ -21,7 +21,7 @@ const NotiDetail = (props) => {
     _noti.once("value", (snapshot) => {
       if (snapshot.exists()) {
         let _data = snapshot.val();
-        console.log(_data);
+        // console.log(_data);
 
         let _noti_list = Object.keys(_data)
           .reverse()
@@ -36,11 +36,11 @@ const NotiDetail = (props) => {
 
   return (
     <>
-      <Grid padding="16px" bg="#EFF6FF">
+      <div className="bg-yellow-200 p-4">
         {noti.map((n, idx) => (
           <NotiCard key={`noti_${idx}`} {...n} />
         ))}
-      </Grid>
+      </div>
     </>
   );
 };

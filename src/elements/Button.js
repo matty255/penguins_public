@@ -3,10 +3,11 @@ import styled from "styled-components";
 import tw from "tailwind-styled-components";
 
 const Btn = tw.button`
-  font-sanss2 cursor-pointer shadow-md
+  font-sanss2  shadow-md 
   box-border rounded-md p-2 py-2
   text-white
-  ${(props) => (props.disabled ? "bg-yellow-600" : "bg-yellow-400")};
+  ${(props) => (props.disabled ? "bg-gray-300" : "bg-yellow-400")};
+  ${(props) => (props.disabled ? "cursor-default" : "cursor-pointer")};
 `;
 
 const PlusBtn = tw.button`

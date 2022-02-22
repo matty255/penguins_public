@@ -36,9 +36,13 @@ const NotiBadge = (props) => {
     <>
       <Badge
         invisible={is_read}
-        color="secondary"
+        color="error"
         onClick={notiCheck}
         variant="dot"
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
       >
         <MailIcon />
       </Badge>

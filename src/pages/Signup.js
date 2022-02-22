@@ -16,18 +16,26 @@ const Signup = (props) => {
   const [user_name, setUserName] = useState("");
   const [pwd, setPwd] = useState("");
   const [pwd_check, setPwdCheck] = useState("");
+  const [final_check, setFinalCheck] = useState(false);
 
   const signup = () => {
     if (pwd !== pwd_check) {
       window.alert("비밀번호가 일치하지 않습니다!");
+      setFinalCheck(false)
     }
 
     if (!emailCheck) {
       window.alert("이메일 형식이 맞지 않습니다!");
+      setFinalCheck(false)
     }
 
-    dispatch(userActions.signUpFB(id, pwd, user_name));
+    setFinalCheck(true)
   };
+
+    // if (final_check === true) => {
+    //   dispatch(userActions.signUpFB(id, pwd, user_name));
+    // }
+  
 
   return (
     <Margins>

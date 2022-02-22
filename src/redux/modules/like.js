@@ -76,7 +76,7 @@ const addLikeFB = (post_id) => {
       const increment = firebase.firestore.FieldValue.increment(1);
 
       like = { ...like, id: doc.id };
-
+      
       postDB
         .doc(post_id)
         .update({ like_cnt: increment })
@@ -106,9 +106,9 @@ const addLikeFB = (post_id) => {
                 console.log("알림 저장에 실패했어요 8ㅛ8");
               } else {
                 const notiDB = realtime.ref(`noti/${post.user_info.user_id}`);
-                if (like.user_id !== post.user_info.user_id) {
+                // if (like.user_id !== post.user_info.user_id) {
                   notiDB.update({ read: false });
-                }
+                // }
               }
             }
           );

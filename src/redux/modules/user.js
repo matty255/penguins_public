@@ -43,14 +43,15 @@ const signUpFB = (id, pwd, user_name) => {
             history.replace("/login");
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
+            alert("아이디, 비밀번호 형식을 확인해주세요!")
           });
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-
-        console.log(errorCode, errorMessage);
+        // console.log(errorCode, errorMessage)
+        alert("이메일 형식으로 작성해주세요!");
       });
   };
 };
@@ -75,16 +76,16 @@ const loginFB = (id, pwd) => {
             history.push("/");
           })
           .catch((error) => {
-            window.alert("아이디 또는 비밀번호가 올바르지 않습니다!");
+            window.alert("비밀번호는 6자 이상으로 해주세요!");
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
+            alert(errorCode, errorMessage);
           });
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        alert(errorCode, errorMessage);
       });
   };
 };
@@ -116,7 +117,7 @@ const logoutFB = () => {
         history.replace("/");
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 };

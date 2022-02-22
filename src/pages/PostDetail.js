@@ -44,7 +44,9 @@ const PostDetail = (props) => {
         </>
       )}
       <Permit>
+        <div className="p-2">
         <CommentWrite post_id={id} />
+        </div>
       </Permit>
       <CommentList post_id={id} />
     </>

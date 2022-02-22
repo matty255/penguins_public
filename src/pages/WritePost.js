@@ -6,6 +6,11 @@ import { history } from "../redux/configureStore";
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as postActions } from "../redux/modules/post";
 import { actionCreators as imageActions } from "../redux/modules/image";
+import tw from "tailwind-styled-components"
+
+const Font = tw.strong`
+font-sanss2 text-yellow-700 p-3 text-lg bg-yellow-100 rounded-md mx-3 text-center
+`
 
 const WritePost = (props) => {
   const dispatch = useDispatch();
@@ -70,15 +75,12 @@ const WritePost = (props) => {
   }
 
   return (
-    <div>
+    <div className="px-2">
       <NonGrid>
-        <div className="flex flex-wrap text-3xl">{is_edit ? "게시물 수정" : "게시글 작성"}</div>
+        <div className="flex flex-wrap text-3xl mr-1">{is_edit ? "Edit" : "Write"}</div>
         <Upload />
         </NonGrid>
-        <Text bold size="20px" margin="20px 0">
-          레이아웃 고르기
-        </Text>
-      
+
       <Grid padding="16px">
         <input
           type="radio"
@@ -88,13 +90,14 @@ const WritePost = (props) => {
           onChange={is_checked}
         />
         <label htmlFor="right">
-          <strong
+          <Font
             style={
               layout === "right" ? { color: "#1B9CFC", margin: "10px" } : null
             }
+            className=""
           >
             오른쪽에 이미지 왼쪽에 텍스트
-          </strong>
+          </Font>
         </label>
       </Grid>
       <Grid is_flex>
@@ -120,13 +123,13 @@ const WritePost = (props) => {
           onChange={is_checked}
         />
         <label htmlFor="left">
-          <strong
+          <Font
             style={
               layout === "left" ? { color: "#1B9CFC", margin: "10px" } : null
             }
           >
             왼쪽에 이미지 오른쪽에 텍스트
-          </strong>
+          </Font>
         </label>
       </Grid>
       <Grid is_flex>
@@ -154,13 +157,13 @@ const WritePost = (props) => {
         />
         <label htmlFor="bottom">
           {" "}
-          <strong
+          <Font
             style={
               layout === "bottom" ? { color: "#1B9CFC", margin: "10px" } : null
             }
           >
             하단에 이미지 상단에 텍스트
-          </strong>
+          </Font>
         </label>
       </Grid>
       <Grid>
@@ -179,8 +182,7 @@ const WritePost = (props) => {
         <Input
           textarea
           value={input}
-          label="게시물 내용"
-          placeholder="게시글 작성"
+          placeholder="이미지를 표현하는 문장을 적어주세요!"
           _onChange={(e) => {
             setInput(e.target.value);
           }}

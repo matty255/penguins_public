@@ -51,13 +51,12 @@ const Header = (props) => {
           </div>
 
           <Permit>
-            <Button margin="0 10px 0 0"> 
+            <Button margin="0 10px 0 0"
+            _onClick={() => {
+              history.push("/noti");
+            }}> 
               <Permit>
-                <NotiBadge
-                  _onClick={() => {
-                    history.push("/noti");
-                  }}
-                />
+                <NotiBadge />
               </Permit> <span className="hidden sm:contents"> 알림</span>
             </Button>
           </Permit>
@@ -72,7 +71,7 @@ const Header = (props) => {
           </Button>
 
 
-          <div className="fixed bottom-10 right-10 md:top-10">
+          <div className="fixed bottom-10 right-10 md:top-10 animate-bounce sm:animate-pulse">
           <Permit>
         <Button _onClick={() => history.push("/write")}>
           <LoyaltyIcon /> <span className="hidden lg:contents"> 포스트쓰러가기</span>

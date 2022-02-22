@@ -37,11 +37,11 @@ const HeartButton = (props) => {
     }
   };
   return (
-    <>
+    <div className="cursor-pointer">
       <Text _onClick={updateHeart}>
      {toggle ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon color="error" /> } 
       </Text>
-    </>
+    </div>
   );
 };
 
