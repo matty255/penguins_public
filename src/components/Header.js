@@ -4,6 +4,7 @@ import NotiBadge from "./NotiBadge";
 import Permit from "../shared/Permit";
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import LoyaltyIcon from '@mui/icons-material/Loyalty';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 import { realtime } from "../shared/firebase";
 import { history } from "../redux/configureStore";
@@ -58,7 +59,7 @@ const Header = (props) => {
               window.location.reload();
             }}
           >
-            <BeachAccessIcon /><span className="hidden sm:contents"> 로그아웃</span>
+            <CancelIcon /><span className="hidden sm:contents"> 로그아웃</span>
           </Button>
 
 

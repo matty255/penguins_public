@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Grid, NonFlexBox, Title, Input, Button } from "../elements";
 import { emailCheck } from "../shared/check";
-
+import { apiKey } from "../shared/firebase";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
 import tw from "tailwind-styled-components"
@@ -10,23 +11,23 @@ const Margins = tw.div`
   mt-24 mx-4 pb-10
 `
 const Signup = (props) => {
+  let history = useHistory();
   const dispatch = useDispatch();
 
   const [id, setId] = useState("");
   const [user_name, setUserName] = useState("");
   const [pwd, setPwd] = useState("");
   const [pwd_check, setPwdCheck] = useState("");
-  const [final_check, setFinalCheck] = useState(false);
 
   const signup = () => {
     if (pwd !== pwd_check) {
       window.alert("비밀번호가 일치하지 않습니다!");
-      setFinalCheck(false)
+
     }
 
     else if (!emailCheck) {
       window.alert("이메일 형식이 맞지 않습니다!");
-      setFinalCheck(false)
+
     }
     else {
       dispatch(userActions.signUpFB(id, pwd, user_name));
@@ -34,7 +35,15 @@ const Signup = (props) => {
     
   };
 
+  const _session_key = `firebase:authUser:${apiKey}:[DEFAULT]`;
+  const is_session = sessionStorage.getItem(_session_key) ? true : false;
 
+  useEffect(() => {
+    if (is_session) {
+      alert("이미 로그인한 사용자입니다")
+      history.push("/");
+    }
+  }, []);
   
 
   return (
