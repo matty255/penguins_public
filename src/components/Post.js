@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as likeActions } from "../redux/modules/like";
 import HeartButton from "./HeartButton";
 
+
 const Post = (props) => {
   const dispatch = useDispatch();
   const list = useSelector((state) => state.like.list);
@@ -47,9 +48,7 @@ const Post = (props) => {
       {layout === "right" && (
         <div>
           <NonGrid
-            _onClick={() => {
-              history.push(`/post/${id}`);
-            }}
+            
           >
             <Text margin="10px" width="40%" center>
               {contents}
@@ -57,49 +56,57 @@ const Post = (props) => {
             <Image half shape="big_square" src={image_url} />
 
           </NonGrid>
-          <NonGrid>
+          <NonGrid
+          _onClick={() => {
+            history.push(`/post/${id}`);
+          }}>
+
             <Text>좋아요 {like_cnt}개</Text>
             <HeartButton post_id={id}></HeartButton>
-            <Text>댓글 {comment_cnt}개</Text>
-            </NonGrid>
+            <div className="cursor-pointer"><Text>댓글 {comment_cnt}개</Text></div>
 
+            </NonGrid>
+            
           </div>
       )}
       {layout === "left" && (
         <div>
           <NonGrid
-            _onClick={() => {
-              history.push(`/post/${id}`);
-            }}
+            
           >
             <Image half shape="big_square" src={image_url} />
             <Text margin="10px" width="40%" center>
               {contents}
             </Text>
           </NonGrid>
-          <NonGrid>
+          <NonGrid
+          _onClick={() => {
+            history.push(`/post/${id}`);
+          }}>
+            
             <Text>좋아요 {like_cnt}개</Text>
             <HeartButton post_id={id}></HeartButton>
-            <Text>댓글 {comment_cnt}개</Text>
+            <div className="cursor-pointer"><Text>댓글 {comment_cnt}개</Text></div>
             </NonGrid>
           </div>
       )}
       {layout === "bottom" && (
         <div>
           <NonGrid
-            _onClick={() => {
-              history.push(`/post/${id}`);
-            }}
+            
           >
             <div className="flex flex-col">
             <Text margin="10px">{contents}</Text>
             <Image shape="big_square" src={image_url} />
             </div>
           </NonGrid>
-          <NonGrid>
+          <NonGrid
+          _onClick={() => {
+            history.push(`/post/${id}`);
+          }}>
             <Text>좋아요 {like_cnt}개</Text>
             <HeartButton post_id={id}></HeartButton>
-            <Text>댓글 {comment_cnt}개</Text>
+            <div className="cursor-pointer"><Text>댓글 {comment_cnt}개</Text></div>
             </NonGrid>
         </div>
       )}
