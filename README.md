@@ -6,7 +6,7 @@
 - step 3. 완성된 백엔드와 실제로 연결해보기
 
 ## step 1 완성 : 보러가기
-https://penguins-test.firebaseapp.com/
+{Click!)[https://penguins-test.firebaseapp.com/]
 
 <aside>
 ✅ 필수 기능 목록
