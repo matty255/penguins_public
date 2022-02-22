@@ -2,11 +2,11 @@
 # 🏁 Goal: 매거진 사이트 제작!
 
 - step 1. 이미지 기반의 서버리스 매거진 사이트 penguins
-- step 2. mop API 적용으로 더미데이터와 연결할 수 있게 고치기
+- step 2. mock API 적용으로 더미데이터와 연결할 수 있게 고치기
 - step 3. 완성된 백엔드와 실제로 연결해보기
 
 ## step 1 완성 : 보러가기
-[Click!](https://penguins-test.firebaseapp.com/)
+firebase + github actions hosting : [Click!](https://penguins-test.firebaseapp.com/)
 
 <aside>
 ✅ 필수 기능 목록
