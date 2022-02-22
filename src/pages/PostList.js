@@ -16,7 +16,7 @@ import InfinityScroll from "../shared/InfinityScroll";
 const PostList = (props) => {
   const dispatch = useDispatch();
   const { list, is_loading, paging } = useSelector((state) => state.post);
-  const user = useSelector((state) => state.user.user);
+  const user = useSelector((state) => state.user?.user);
 
   useEffect(() => {
     if (list.length < 2) {

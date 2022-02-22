@@ -1,13 +1,15 @@
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import tw from "tailwind-styled-components";
+import NotFound from "../components/NotFound";
 
 import { history } from "../redux/configureStore";
 import { apiKey } from "./firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
+
 
 import PostList from "../pages/PostList";
 import Login from "../pages/Login";
@@ -56,6 +58,7 @@ function App() {
             <Route exact path="/post/:id" component={PostDetail} />
             <Route exact path="/noti" component={NotiDetail} />
             <Route exact path="/caution" component={Caution} />
+            <Route component={NotFound} />
           </ConnectedRouter>
           </div>
       </Container>

@@ -11,10 +11,10 @@ import CommentList from "../components/CommentList";
 
 const PostDetail = (props) => {
   const dispatch = useDispatch();
-  const user_info = useSelector((state) => state.user.user);
-  const post_list = useSelector((state) => state.post.list);
+  const user_info = useSelector((state) => state.user?.user);
+  const post_list = useSelector((state) => state.post?.list);
 
-  const id = props.match.params.id;
+  const id = props.match.params?.id;
   const post = post_list.find((p) => p.id === id);
 
   useEffect(() => {
