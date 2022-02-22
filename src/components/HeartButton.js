@@ -23,6 +23,7 @@ const HeartButton = (props) => {
       setToggle(true);
     } else {
       setToggle(false);
+
     }
   });
 

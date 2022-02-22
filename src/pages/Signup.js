@@ -24,17 +24,17 @@ const Signup = (props) => {
       setFinalCheck(false)
     }
 
-    if (!emailCheck) {
+    else if (!emailCheck) {
       window.alert("이메일 형식이 맞지 않습니다!");
       setFinalCheck(false)
     }
-
-    setFinalCheck(true)
+    else {
+      dispatch(userActions.signUpFB(id, pwd, user_name));
+    }
+    
   };
 
-    // if (final_check === true) => {
-    //   dispatch(userActions.signUpFB(id, pwd, user_name));
-    // }
+
   
 
   return (

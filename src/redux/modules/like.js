@@ -45,7 +45,7 @@ const getLikeFB = (post_id) => {
         docs.forEach((doc) => {
           list.push(doc.data().user_id);
         });
-        console.log(list);
+        // console.log(list);
 
         dispatch(setLike(post_id, list));
       })

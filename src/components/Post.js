@@ -56,14 +56,14 @@ const Post = (props) => {
             <Image half shape="big_square" src={image_url} />
 
           </NonGrid>
-          <NonGrid
+          <NonGrid>
+
+            <Text>좋아요 <span className="text-xl">{like_cnt}</span>개</Text>
+            <HeartButton post_id={id}></HeartButton>
+            <div className="cursor-pointer hover:scale-110 font-bold"><Text
           _onClick={() => {
             history.push(`/post/${id}`);
-          }}>
-
-            <Text>좋아요 {like_cnt}개</Text>
-            <HeartButton post_id={id}></HeartButton>
-            <div className="cursor-pointer"><Text>댓글 {comment_cnt}개</Text></div>
+          }}>댓글 <span className="text-xl">{comment_cnt}</span>개</Text></div>
 
             </NonGrid>
             
@@ -79,14 +79,14 @@ const Post = (props) => {
               {contents}
             </Text>
           </NonGrid>
-          <NonGrid
+          <NonGrid>
+            
+            <Text>좋아요 <span className="text-xl">{like_cnt}</span>개</Text>
+            <HeartButton post_id={id}></HeartButton>
+            <div className="cursor-pointer hover:scale-110 font-bold"><Text
           _onClick={() => {
             history.push(`/post/${id}`);
-          }}>
-            
-            <Text>좋아요 {like_cnt}개</Text>
-            <HeartButton post_id={id}></HeartButton>
-            <div className="cursor-pointer"><Text>댓글 {comment_cnt}개</Text></div>
+          }}>댓글 <span className="text-xl">{comment_cnt}</span>개</Text></div>
             </NonGrid>
           </div>
       )}
@@ -100,13 +100,13 @@ const Post = (props) => {
             <Image shape="big_square" src={image_url} />
             </div>
           </NonGrid>
-          <NonGrid
+          <NonGrid>
+            <Text>좋아요 <span className="text-xl">{like_cnt}</span>개</Text>
+            <HeartButton post_id={id}></HeartButton>
+            <div className="cursor-pointer hover:scale-110 font-bold"><Text
           _onClick={() => {
             history.push(`/post/${id}`);
-          }}>
-            <Text>좋아요 {like_cnt}개</Text>
-            <HeartButton post_id={id}></HeartButton>
-            <div className="cursor-pointer"><Text>댓글 {comment_cnt}개</Text></div>
+          }}>댓글 <span className="text-xl">{comment_cnt}</span>개</Text></div>
             </NonGrid>
         </div>
       )}
