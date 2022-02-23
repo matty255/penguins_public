@@ -6,10 +6,10 @@ import { history } from "../redux/configureStore";
 const Caution = (props) => {
   return (
     <NonFlexBox>
-      <Text size="32px" bold>
+      <Text>
         앗 잠깐!
       </Text>
-      <Text size="16px">로그인 후에만 이용 할 수 있어요!</Text>
+      <Text>로그인 후에만 이용 할 수 있어요!</Text>
       <Button
         _onClick={() => {
           history.replace("/login");

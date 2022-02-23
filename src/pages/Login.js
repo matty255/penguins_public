@@ -42,7 +42,7 @@ const Login = (props) => {
     <Margins>
     <NonFlexBox>
       <Title>Log-in</Title>
-      <div className="mt-5"></div>
+      <div className="mt-5" />
       <Input
         value={id}
         label="아이디"

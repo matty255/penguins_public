@@ -23,17 +23,15 @@ const Signup = (props) => {
   const signup = () => {
     if (pwd !== pwd_check) {
       window.alert("비밀번호가 일치하지 않습니다!");
-
+      return
     }
 
-    else if (!emailCheck) {
+    if (!emailCheck) {
       window.alert("이메일 형식이 맞지 않습니다!");
-
-    }
-    else {
-      dispatch(userActions.signUpFB(id, pwd, user_name));
+      return
     }
     
+    dispatch(userActions.signUpFB(id, pwd, user_name));
   };
 
   const _session_key = `firebase:authUser:${apiKey}:[DEFAULT]`;

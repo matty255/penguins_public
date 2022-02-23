@@ -41,7 +41,7 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <div className="md:w-3/5 m-auto bg-yellow-200 shadow-md">
+        <div className="sm:w-4/5 lg:w-3/5 m-auto bg-yellow-200 shadow-md">
           <ConnectedRouter history={history}>
             <Header />
             <Route exact path="/" component={PostList} />

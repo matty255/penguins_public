@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { NonGrid, Input, Button, Image, Text, NonFlexBox, Intro } from "../elements";
+import { NonGrid, Input, Button, Image, Text, NonFlexBox, Intro, PostText } from "../elements";
 import Upload from "../components/Upload";
 
 import { history } from "../redux/configureStore";
@@ -9,7 +9,8 @@ import { actionCreators as imageActions } from "../redux/modules/image";
 import tw from "tailwind-styled-components"
 
 const Font = tw.strong`
-font-sanss2 text-yellow-700 p-3 text-lg bg-yellow-100 rounded-md mx-3 text-center
+font-sanss2 text-yellow-700 p-3 text-lg 
+bg-yellow-100 rounded-md mx-3 text-center
 `
 
 const WritePost = (props) => {
@@ -109,18 +110,16 @@ const WritePost = (props) => {
             style={
               layout === "right" ? { color: "#1B9CFC", margin: "10px" } : null
             }
-            className=""
           >
             오른쪽에 이미지 왼쪽에 텍스트
           </Font>
         </label>
       </NonFlexBox>
 
-      <NonFlexBox>
-        <Text width="80%" margin="10px" center>
-          {input}
-        </Text>
-        <Image
+
+        <div className="flex flex-row px-4">
+          <PostText>{input}</PostText>
+         <Image
           half={true}
           shape="big_square"
           src={
@@ -129,7 +128,8 @@ const WritePost = (props) => {
               : "https://user-images.githubusercontent.com/75834421/124501682-fb25fd00-ddfc-11eb-93ec-c0330dff399b.jpg"
           }
         />
-      </NonFlexBox>
+         </div>
+
       <NonFlexBox>
         <input
           type="radio"
@@ -148,7 +148,7 @@ const WritePost = (props) => {
           </Font>
         </label>
       </NonFlexBox>
-      <NonFlexBox>
+      <div className="flex flex-row px-4">
         <Image
           half={true}
           shape="big_square"
@@ -158,10 +158,9 @@ const WritePost = (props) => {
               : "https://user-images.githubusercontent.com/75834421/124501682-fb25fd00-ddfc-11eb-93ec-c0330dff399b.jpg"
           }
         />
-        <Text width="80%" margin="10px" center>
-          {input}
-        </Text>
-      </NonFlexBox>
+        <PostText>{input}</PostText>
+      </div>
+
       <NonFlexBox>
         <input
           type="radio"
@@ -182,8 +181,8 @@ const WritePost = (props) => {
           </Font>
         </label>
       </NonFlexBox>
-      <NonFlexBox>
-        <Text margin="10px">{input}</Text>
+      <div className="flex flex-col px-4">
+        <PostText>{input}</PostText>
         <Image
           shape="big_square"
           src={
@@ -192,7 +191,7 @@ const WritePost = (props) => {
               : "https://user-images.githubusercontent.com/75834421/124501682-fb25fd00-ddfc-11eb-93ec-c0330dff399b.jpg"
           }
         />
-      </NonFlexBox>
+      </div>
 
       <NonFlexBox>
         <Input

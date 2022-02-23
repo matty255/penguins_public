@@ -19,7 +19,7 @@ const PostList = (props) => {
   }, []);
 
   useEffect(() => {
-    setTimeout(()=>{ setIsLoaded(false) }, 2000);
+    setTimeout(()=>{ setIsLoaded(false) }, 1000);
 }, [is_loaded])
   
   return (
@@ -34,7 +34,8 @@ const PostList = (props) => {
         loading={is_loading}
       >
         {list.map((post, idx) => {
-          //로그인 했을 때만 체크하기 위해 optional chaining(user?.uid)사용
+          //로그인 했을 때만 체크하기 위해 optional chaining
+          // 이런식으로도 쓰는구나
           if (post.user_info.user_id === user?.uid) {
             return <Post key={post.id} {...post} is_me={true} />;
           } else {
