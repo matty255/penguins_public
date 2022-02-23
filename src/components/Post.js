@@ -19,6 +19,7 @@ const Post = (props) => {
     id,
     layout,
     comment_cnt,
+    show
   } = props;
 
   useEffect(() => {
@@ -48,7 +49,7 @@ const Post = (props) => {
       {layout === "right" && (
         <div>
           <NonGrid>
-            <PostText>{contents}</PostText>
+           {!show && <PostText>{contents}</PostText> }
             <Image half shape="big_square" src={image_url} />
 
           </NonGrid>
@@ -71,7 +72,7 @@ const Post = (props) => {
             
           >
             <Image half shape="big_square" src={image_url} />
-            <PostText>{contents}</PostText>
+            {!show && <PostText>{contents}</PostText> }
           </NonGrid>
 
 
@@ -89,7 +90,7 @@ const Post = (props) => {
         <div>
           <NonGrid>
             <div className="flex flex-col">
-            <PostText>{contents}</PostText>
+            {!show && <PostText>{contents}</PostText> }
             <Image shape="big_square" src={image_url} />
             </div>
           </NonGrid>
@@ -119,6 +120,7 @@ Post.defaultProps = {
   like_cnt: 0,
   comment_cnt: 0,
   insert_dt: "2021-06-30 10:00:00",
+  show: false,
 };
 
 export default Post;

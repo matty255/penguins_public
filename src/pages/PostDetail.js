@@ -37,7 +37,7 @@ const PostDetail = (props) => {
     <>
       {post && (
         <>
-          <Post {...post} is_me={post.user_info.user_id === user_info?.uid} />
+          <Post {...post} show is_me={post.user_info.user_id === user_info?.uid} />
           <PostText is_false>{post.contents}</PostText>
           {post.user_info.user_id === user_info?.uid ? (
             <div className="flex justify-center items-center hover:scale-105">
