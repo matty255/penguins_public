@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Grid, Image, Text, Button } from "../elements";
+import { Grid, Image, Text, Button, PostText } from "../elements";
 import Post from "../components/Post";
 
 import { history } from "../redux/configureStore";
@@ -38,11 +38,13 @@ const PostDetail = (props) => {
       {post && (
         <>
           <Post {...post} is_me={post.user_info.user_id === user_info?.uid} />
+          <PostText is_false>{post.contents}</PostText>
           {post.user_info.user_id === user_info?.uid ? (
             <div className="flex justify-center items-center hover:scale-105">
             <Button _onClick={deletePost}>Delete this Post?</Button>
             </div>
           ) : null}
+          
         </>
       )}
       <Permit>
