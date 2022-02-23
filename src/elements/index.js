@@ -8,5 +8,6 @@ import Spinner from "./Spinner";
 import NonGrid from "./NonGrid";
 import NonFlexBox from "./NonFlexBox";
 import Intro from "./Intro";
+import PostText from "./PostText";
 
-export { Grid, NonGrid, NonFlexBox, Title, Text, Input, Button, Image, Spinner, Intro };
+export { Grid, NonGrid, NonFlexBox, Title, Text, Input, Button, Image, Spinner, Intro, PostText };

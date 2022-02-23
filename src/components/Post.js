@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NonGrid, NonFlexBox, Image, Text, Button } from "../elements";
+import { NonGrid, NonFlexBox, Image, Text, Button, PostText } from "../elements";
 
 import { history } from "../redux/configureStore";
 import { useDispatch } from "react-redux";
@@ -48,9 +48,7 @@ const Post = (props) => {
       {layout === "right" && (
         <div>
           <NonGrid>
-            <Text margin="10px" width="40%" center>
-              {contents}
-            </Text>
+            <PostText>{contents}</PostText>
             <Image half shape="big_square" src={image_url} />
 
           </NonGrid>
@@ -73,9 +71,7 @@ const Post = (props) => {
             
           >
             <Image half shape="big_square" src={image_url} />
-            <Text margin="10px" width="40%" center>
-              {contents}
-            </Text>
+            <PostText>{contents}</PostText>
           </NonGrid>
 
 
@@ -93,7 +89,7 @@ const Post = (props) => {
         <div>
           <NonGrid>
             <div className="flex flex-col">
-            <Text margin="10px">{contents}</Text>
+            <PostText>{contents}</PostText>
             <Image shape="big_square" src={image_url} />
             </div>
           </NonGrid>
