@@ -1,6 +1,8 @@
 import React from "react";
+import { Button } from "../elements";
+
 import { useHistory } from "react-router-dom";
-import {Button, Text} from "../elements"
+
 
 const NotFound = (props) => {
   let history = useHistory();

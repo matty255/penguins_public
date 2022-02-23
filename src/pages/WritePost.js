@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Grid, NonGrid, Input, Button, Image, Text } from "../elements";
+import React, { useEffect, useState, useCallback } from "react";
+import { NonGrid, Input, Button, Image, Text, NonFlexBox, Intro } from "../elements";
 import Upload from "../components/Upload";
 
 import { history } from "../redux/configureStore";
@@ -23,6 +23,17 @@ const WritePost = (props) => {
   const _post = is_edit ? post_list.find((p) => p.id === post_id) : null;
   const [layout, setLayout] = useState(_post ? _post.layout : "bottom");
   const [input, setInput] = useState(_post ? _post.contents : "");
+  let [ is_loaded, setIsLoaded ] = useState(false);
+
+  const use = React.useRef(null);
+  const scrolling = useCallback(e => {
+      use.current.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' });
+  }, []);
+
+  useEffect(() => {
+    setTimeout(()=>{ setIsLoaded(false) }, 2000);
+    scrolling();
+}, [is_loaded, scrolling])
 
   useEffect(() => {
     //수정 페이지에서 새로고침을 하면 rerendering이 되면서 reducer의
@@ -38,15 +49,18 @@ const WritePost = (props) => {
     }
 
     if (is_edit) {
+
       dispatch(imageActions.setPreview(_post.image_url));
     }
   }, []);
 
   const addPost = () => {
+    setIsLoaded(true);
     dispatch(postActions.addPostFB(input, layout));
   };
 
   const editPost = () => {
+    setIsLoaded(true);
     dispatch(postActions.updatePostFB(post_id, { contents: input, layout }));
   };
 
@@ -58,7 +72,7 @@ const WritePost = (props) => {
 
   if (!is_login) {
     return (
-      <Grid margin="100px 0px" padding="16px" center>
+      <NonFlexBox>
         <Text size="32px" bold>
           앗 잠깐!
         </Text>
@@ -70,18 +84,19 @@ const WritePost = (props) => {
         >
           로그인 하러 가기!
         </Button>
-      </Grid>
+      </NonFlexBox>
     );
   }
 
   return (
-    <div className="px-2">
+    <div className="px-1" ref={use}>
+      
       <NonGrid>
-        <div className="flex flex-wrap text-3xl mr-1">{is_edit ? "Edit" : "Write"}</div>
+        <div className="flex flex-wrap text-3xl my-2">{is_edit ? "Edit" : "Write"}</div>
         <Upload />
         </NonGrid>
 
-      <Grid padding="16px">
+      <NonFlexBox>
         <input
           type="radio"
           name="layout"
@@ -99,13 +114,14 @@ const WritePost = (props) => {
             오른쪽에 이미지 왼쪽에 텍스트
           </Font>
         </label>
-      </Grid>
-      <Grid is_flex>
+      </NonFlexBox>
+
+      <NonFlexBox>
         <Text width="80%" margin="10px" center>
           {input}
         </Text>
         <Image
-          half
+          half={true}
           shape="big_square"
           src={
             preview
@@ -113,8 +129,8 @@ const WritePost = (props) => {
               : "https://user-images.githubusercontent.com/75834421/124501682-fb25fd00-ddfc-11eb-93ec-c0330dff399b.jpg"
           }
         />
-      </Grid>
-      <Grid padding="16px">
+      </NonFlexBox>
+      <NonFlexBox>
         <input
           type="radio"
           name="layout"
@@ -131,10 +147,10 @@ const WritePost = (props) => {
             왼쪽에 이미지 오른쪽에 텍스트
           </Font>
         </label>
-      </Grid>
-      <Grid is_flex>
+      </NonFlexBox>
+      <NonFlexBox>
         <Image
-          half
+          half={true}
           shape="big_square"
           src={
             preview
@@ -145,8 +161,8 @@ const WritePost = (props) => {
         <Text width="80%" margin="10px" center>
           {input}
         </Text>
-      </Grid>
-      <Grid padding="16px">
+      </NonFlexBox>
+      <NonFlexBox>
         <input
           type="radio"
           name="layout"
@@ -165,8 +181,8 @@ const WritePost = (props) => {
             하단에 이미지 상단에 텍스트
           </Font>
         </label>
-      </Grid>
-      <Grid>
+      </NonFlexBox>
+      <NonFlexBox>
         <Text margin="10px">{input}</Text>
         <Image
           shape="big_square"
@@ -176,9 +192,9 @@ const WritePost = (props) => {
               : "https://user-images.githubusercontent.com/75834421/124501682-fb25fd00-ddfc-11eb-93ec-c0330dff399b.jpg"
           }
         />
-      </Grid>
+      </NonFlexBox>
 
-      <Grid padding="16px">
+      <NonFlexBox>
         <Input
           textarea
           value={input}
@@ -202,7 +218,8 @@ const WritePost = (props) => {
             게시글 작성
           </Button>
         )}
-      </Grid>
+      </NonFlexBox>
+      {is_loaded && <Intro />}
     </div>
   );
 };

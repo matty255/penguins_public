@@ -1,12 +1,11 @@
-
-import Badge from '@mui/material/Badge';
-import MailIcon from '@mui/icons-material/Mail';
-
 import React, { useEffect, useState } from "react";
 
 import { history } from "../redux/configureStore";
 import { useSelector } from "react-redux";
 import { realtime } from "../shared/firebase";
+
+import Badge from '@mui/material/Badge';
+import MailIcon from '@mui/icons-material/Mail';
 
 const NotiBadge = (props) => {
   const user_id = useSelector((state) => state.user.user.uid);

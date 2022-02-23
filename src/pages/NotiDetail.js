@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { NonFlexBox } from "../elements";
-import NotiCard from "../components/NotiCard";
-
 import { realtime } from "../shared/firebase";
 import { useSelector } from "react-redux";
+
+import NotiCard from "../components/NotiCard";
+
 
 const NotiDetail = (props) => {
   const user = useSelector((state) => state.user.user);

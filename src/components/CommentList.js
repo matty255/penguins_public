@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Grid, Image, Text } from "../elements";
+import { Image, Text } from "../elements";
 
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as commentActions } from "../redux/modules/comment";

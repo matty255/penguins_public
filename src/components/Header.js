@@ -1,17 +1,17 @@
 import React from "react";
+
 import { NonGrid, Button, Text, Image, Title } from "../elements";
 import NotiBadge from "./NotiBadge";
 import Permit from "../shared/Permit";
-import BeachAccessIcon from '@mui/icons-material/BeachAccess';
-import LoyaltyIcon from '@mui/icons-material/Loyalty';
-import CancelIcon from '@mui/icons-material/Cancel';
 
-import { realtime } from "../shared/firebase";
 import { history } from "../redux/configureStore";
 import { useSelector, useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
 import { apiKey } from "../shared/firebase";
-import tw from "tailwind-styled-components"
+
+import LoyaltyIcon from '@mui/icons-material/Loyalty';
+import CancelIcon from '@mui/icons-material/Cancel';
+
 
 
 const Header = (props) => {
@@ -28,7 +28,7 @@ const Header = (props) => {
 
         <Title _onClick={() => {
               window.location.replace("/");
-            }} is_click>
+            }} is_click={true}>
                 Penguins
         </Title>
       
@@ -43,7 +43,7 @@ const Header = (props) => {
           </div>
 
           <Permit>
-            <Button margin="0 10px 0 0"
+            <Button 
             _onClick={() => {
               history.push("/noti");
             }}> 
@@ -77,14 +77,13 @@ const Header = (props) => {
     <NonGrid>
         <Title _onClick={() => {
               window.location.replace("/");
-            }} is_click>
+            }} is_click={true}>
                 Penguins
         </Title>
 
 
     <div className="flex space-x-3 p-4 text-xs sm:text-sm md:text-lg">
         <Button
-            margin="0 10px 0 0"
             _onClick={() => {
               history.push("/signup");
             }}

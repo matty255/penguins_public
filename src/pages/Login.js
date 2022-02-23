@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { NonFlexBox, Title, Input, Button, Text } from "../elements";
+
+import { NonFlexBox, Title, Input, Button } from "../elements";
 import { emailCheck } from "../shared/check";
 import { apiKey } from "../shared/firebase";
 import { useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
-import tw from "tailwind-styled-components";
 import { useHistory } from "react-router-dom";
+
+import tw from "tailwind-styled-components";
 
 const Margins = tw.div` 
   mt-24 mx-4 pb-10
@@ -57,7 +59,7 @@ const Login = (props) => {
         _onChange={(e) => {
           setPwd(e.target.value);
         }}
-        is_submit
+        is_submit={true}
         _onSubmit={login}
       />
       <div className="mt-7">

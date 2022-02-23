@@ -12,22 +12,12 @@ const NonGrid = (props) => {
   const {
     children,
     is_flex,
-    width,
-    padding,
-    margin,
-    bg,
-    relative,
     _onClick,
     is_main,
   } = props;
 
   const styles = {
     is_flex,
-    width,
-    margin,
-    padding,
-    bg,
-    relative,
     is_main,
   };
   return (

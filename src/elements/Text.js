@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import tw from "tailwind-styled-components";
 
 const P = tw.p`
@@ -7,11 +6,10 @@ const P = tw.p`
 `;
 
 const Text = (props) => {
-  const { children, size, margin, width, bold, _onClick, is_click, center } =
+  const { children, margin, width, bold, _onClick, is_click, center } =
     props;
 
   const styles = {
-    size,
     children,
     margin,
     width,
@@ -28,7 +26,6 @@ const Text = (props) => {
 
 Text.defaultProps = {
   children: null,
-  size: "14px",
   margin: false,
   bold: false,
   _onClick: () => {},
@@ -36,7 +33,6 @@ Text.defaultProps = {
   width: false,
   center: false,
 };
-
 
 
 export default Text;

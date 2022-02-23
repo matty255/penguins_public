@@ -1,6 +1,6 @@
 import React from "react";
-import tw from "tailwind-styled-components";
 import { Text } from "../elements";
+import tw from "tailwind-styled-components";
 
 const InputStyles = tw.input`
     w-full px-3 py-2 leading-tight text-yellow-700 text-lg
@@ -31,7 +31,7 @@ const Input = (props) => {
   if (is_submit) {
     return (
       <label>
-        <Text margin="5px 0">{label}</Text>
+        <Text>{label}</Text>
         <InputStyles
           type={type}
           value={value}
@@ -48,7 +48,7 @@ const Input = (props) => {
   } else if (textarea) {
     return (
       <label>
-        <Text margin="5px 0">{label}</Text>
+        <Text>{label}</Text>
         <TextAreaField
           value={value}
           rows={10}
@@ -60,7 +60,7 @@ const Input = (props) => {
   } else {
     return (
       <label>
-        <Text margin="5px 0">{label}</Text>
+        <Text>{label}</Text>
         <InputStyles
           type={type}
           value={value}
@@ -82,8 +82,6 @@ Input.defaultProps = {
   is_upload: false,
   _onChange: () => {},
   _onSubmit: () => {},
-  margin: false,
-  width: false,
 };
 
 

@@ -1,4 +1,3 @@
-import Grid from "./Grid";
 import Title from "./Title";
 import Text from "./Text";
 import Input from "./Input";
@@ -10,4 +9,4 @@ import NonFlexBox from "./NonFlexBox";
 import Intro from "./Intro";
 import PostText from "./PostText";
 
-export { Grid, NonGrid, NonFlexBox, Title, Text, Input, Button, Image, Spinner, Intro, PostText };
+export { NonGrid, NonFlexBox, Title, Text, Input, Button, Image, Spinner, Intro, PostText };

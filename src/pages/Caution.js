@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Text, Button, NonFlexBox } from "../elements";
+import { Text, Button, NonFlexBox } from "../elements";
 
 import { history } from "../redux/configureStore";
 

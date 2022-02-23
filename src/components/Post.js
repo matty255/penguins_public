@@ -4,6 +4,7 @@ import { NonGrid, NonFlexBox, Image, Text, Button, PostText } from "../elements"
 import { history } from "../redux/configureStore";
 import { useDispatch } from "react-redux";
 import { actionCreators as likeActions } from "../redux/modules/like";
+
 import HeartButton from "./HeartButton";
 
 
@@ -30,14 +31,11 @@ const Post = (props) => {
           <div>
             <hr className="border-4 border-double border-white" />
             <NonGrid>
-              <Image shape="circle" size="40" src={props.src} />
-              <Text bold>By {user_info.user_name}</Text>
+              <Image shape="circle" src={props.src} />
+              <Text>By {user_info.user_name}</Text>
               <Text>{insert_dt}</Text>
               {props.is_me && (
                 <Button
-                  width="45%"
-                  font_size="12px"
-                  padding="0"
                   _onClick={() => {
                     history.push(`/write/${id}`);
                   }}
@@ -50,7 +48,7 @@ const Post = (props) => {
         <div>
           <NonGrid>
            {!show && <PostText>{contents}</PostText> }
-            <Image half shape="big_square" src={image_url} />
+            <Image half={true} shape="big_square" src={image_url} />
 
           </NonGrid>
           <NonGrid>
@@ -68,10 +66,8 @@ const Post = (props) => {
 
       {layout === "left" && (
         <div>
-          <NonGrid
-            
-          >
-            <Image half shape="big_square" src={image_url} />
+          <NonGrid>
+            <Image half={true} shape="big_square" src={image_url} />
             {!show && <PostText>{contents}</PostText> }
           </NonGrid>
 
@@ -110,7 +106,7 @@ const Post = (props) => {
 
 Post.defaultProps = {
   user_info: {
-    user_name: "minju",
+    user_name: "pika",
     user_profile:
       "https://user-images.githubusercontent.com/89088205/155067524-151af583-2272-4b2d-b83a-c44158c16309.jpg",
   },

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Text } from "../elements";
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 import { apiKey } from "../shared/firebase";
 import { history } from "../redux/configureStore";
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as likeActions } from "../redux/modules/like";
+
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const HeartButton = (props) => {
   const dispatch = useDispatch();

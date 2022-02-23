@@ -2,8 +2,8 @@ import React from "react";
 import tw from "tailwind-styled-components";
 
 const P = tw.p`
-  text-base md:text-lg text-yellow-800 font-sanss2 p-4 bg-yellow-200
-  rounded-md m-1 
+  text-base md:text-lg text-yellow-800 font-sanss2 p-4 
+  bg-yellow-200 rounded-md m-1 
   ${(props) => (props.is_false ? "" : "truncate")};
 `;
 

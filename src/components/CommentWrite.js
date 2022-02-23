@@ -23,10 +23,10 @@ const CommentWrite = (props) => {
     <div className="flex flex-row justify-between font-sanss2 text-yellow-800">
       <Input
         type="text"
-        placeholder="댓글 내용을 입력하세요 :)       "
+        placeholder="댓글 내용을 입력하세요 :)"
         value={comment}
         _onChange={writeComment}
-        is_submit
+        is_submit={true}
         _onSubmit={addComment}
       />
       <Button _onClick={addComment} >추가</Button>

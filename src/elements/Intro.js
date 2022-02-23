@@ -12,9 +12,9 @@ const Intro = (props) => {
 }
 
 const Outter = tw.div`
-  fixed top-0
+  fixed top-0 left-0
   w-screen h-screen flex items-center justify-center
-  bg-yellow-300
+  bg-yellow-300 z-50
 `;
 
 export default Intro;

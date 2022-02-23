@@ -1,25 +1,24 @@
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
+
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import tw from "tailwind-styled-components";
-import NotFound from "../components/NotFound";
 
 import { history } from "../redux/configureStore";
 import { apiKey } from "./firebase";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
-
 
 import PostList from "../pages/PostList";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Header from "../components/Header";
 import WritePost from "../pages/WritePost";
-import { Intro } from "../elements";
+
 import PostDetail from "../pages/PostDetail";
 import Caution from "../pages/Caution";
 import NotiDetail from "../pages/NotiDetail";
+import NotFound from "../components/NotFound";
 
 const Container = tw.div`
   w-full bg-yellow-300 -m-3 mx-auto h-full border-b-8
@@ -32,11 +31,6 @@ function App() {
   const _session_key = `firebase:authUser:${apiKey}:[DEFAULT]`;
   const is_session = sessionStorage.getItem(_session_key) ? true : false;
 
-  let [ is_loaded, setIsLoaded ] = useState(true);
-
-  useEffect(()=>{
-    setTimeout(()=>{ setIsLoaded(false) }, 2000);
-  });
 
   useEffect(() => {
     if (is_session) {
@@ -62,7 +56,7 @@ function App() {
           </ConnectedRouter>
           </div>
       </Container>
-      {is_loaded && <Intro />}
+
     </div>
   );
 }
