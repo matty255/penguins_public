@@ -117,8 +117,8 @@ const WritePost = (props) => {
       </NonFlexBox>
 
 
-        <div className="flex flex-row px-4">
-          <PostText>{input}</PostText>
+        <div className="flex flex-row-reverse px-4">
+          <PostText layout={"right"}>{input}</PostText>
          <Image
           half={true}
           shape="big_square"
@@ -158,7 +158,7 @@ const WritePost = (props) => {
               : "https://user-images.githubusercontent.com/75834421/124501682-fb25fd00-ddfc-11eb-93ec-c0330dff399b.jpg"
           }
         />
-        <PostText>{input}</PostText>
+        <PostText layout={"left"}>{input}</PostText>
       </div>
 
       <NonFlexBox>
@@ -177,12 +177,12 @@ const WritePost = (props) => {
               layout === "bottom" ? { color: "#1B9CFC", margin: "10px" } : null
             }
           >
-            하단에 이미지 상단에 텍스트
+            상단에 이미지 하단에 텍스트
           </Font>
         </label>
       </NonFlexBox>
-      <div className="flex flex-col px-4">
-        <PostText>{input}</PostText>
+      <div className="flex flex-col px-4 justify-center items-center">
+        <PostText layout={"bottom"}>{input}</PostText>
         <Image
           shape="big_square"
           src={
@@ -197,7 +197,7 @@ const WritePost = (props) => {
         <Input
           textarea
           value={input}
-          placeholder="이미지를 표현하는 문장을 적어주세요!"
+          placeholder="디테일페이지에서는 글씨가 전부 다 보일거에요!"
           _onChange={(e) => {
             setInput(e.target.value);
           }}

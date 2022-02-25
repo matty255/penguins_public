@@ -13,9 +13,11 @@ const SmallSquareImage = tw.img`
 
 
 const BigSquareImage = tw.img`
-  w-full bg-cover rounded-xl p-1
-  ${(props) => (props.half ? "flex-auto" : "")}
-  ${(props) => (props.half ? "w-3/4" : "")}
+  rounded-xl bg-center bg-contain w-80 h-80
+`;
+
+const DetailImage = tw.img`
+  rounded-xl bg-center bg-contain md:max-w-xl max-w-sx
 `;
 
 const Image = (props) => {
@@ -30,12 +32,16 @@ const Image = (props) => {
     return <CircleImage {...styles} src={src} />;
   }
 
+  if (shape === "detail_square") {
+    return <DetailImage {...styles} src={src} />;
+  }
+
   if (shape === "big_square") {
     return <BigSquareImage {...styles} src={src} />;
   }
 
   if (shape === "small_square") {
-    return <SmallSquareImage {...styles} src={src} />;
+    return <div className=""><SmallSquareImage {...styles} style={{backgroundImage: `url(${src})`}} /> </div>;
   }
 };
 

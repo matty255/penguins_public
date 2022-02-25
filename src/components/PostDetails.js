@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NonGrid, NonFlexBox, Image, Text, Button, PostText } from "../elements";
+import { NonGrid, Image, Text, Button, PostText } from "../elements";
 
 import { history } from "../redux/configureStore";
 import { useDispatch } from "react-redux";
@@ -10,13 +10,12 @@ import HeartButton from "./HeartButton";
 
 const A = tw.div`
 overflow-hidden justify-center items-center
-${(props) => (props.layout === "left" ? `w-full flex flex-row justify-between` : "bg-yellow-400")};
-${(props) => (props.layout === "right" ? `w-full flex flex-row-reverse justify-between` : "bg-yellow-400")};
-${(props) => (props.layout === "bottom" ? `flex flex-row` : "bg-yellow-400")};
-${(props) => (props.is_detail ? "w-full" : "bg-yellow-400")};
+w-full
 `
-
-const Post = (props) => {
+// ${(props) => (props.layout === "left" ? `flex flex-row` : "bg-yellow-400")};
+// ${(props) => (props.layout === "right" ? `flex flex-row` : "bg-yellow-400")};
+// ${(props) => (props.layout === "bottom" ? "w-full" : "bg-yellow-400")};
+const PostDetails = (props) => {
   const dispatch = useDispatch();
 
   const {
@@ -28,8 +27,7 @@ const Post = (props) => {
     id,
     layout,
     comment_cnt,
-    show,
-    is_detail
+    show
   } = props;
 
   useEffect(() => {
@@ -37,7 +35,7 @@ const Post = (props) => {
   }, []);
   return (
 
-    <div className="sm:flex-wrap box-border sm:w-1/2 md:w-1/3">
+    <div>
           <div>
             <hr className="border-4 border-double border-white" />
             <NonGrid>
@@ -60,7 +58,9 @@ const Post = (props) => {
           }}
            
            >{contents}</PostText> }
-            <A layout={layout}><Image half={true} shape="big_square" src={image_url} /></A>
+            <A layout={layout}>
+              
+              <Image shape="detail_square" is_detail={true} src={image_url} /></A>
 
           </NonGrid>
           <NonGrid>
@@ -81,7 +81,7 @@ const Post = (props) => {
   );
 };
 
-Post.defaultProps = {
+PostDetails.defaultProps = {
   user_info: {
     user_name: "pika",
     user_profile:
@@ -94,7 +94,6 @@ Post.defaultProps = {
   comment_cnt: 0,
   insert_dt: "2021-06-30 10:00:00",
   show: false,
-  is_detail: false,
 };
 
-export default Post;
+export default PostDetails;

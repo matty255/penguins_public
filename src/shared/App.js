@@ -21,8 +21,9 @@ import NotiDetail from "../pages/NotiDetail";
 import NotFound from "../components/NotFound";
 
 const Container = tw.div`
-  w-full bg-yellow-300 -m-3 mx-auto h-full border-b-8
-  border-yellow-300 shadow-md
+  w-full bg-yellow-300 mx-auto flex
+   justify-center items-center p-2
+  overflow-x-hidden
 `;
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <div className="sm:w-4/5 lg:w-3/5 m-auto bg-yellow-200 shadow-md">
+        <div className=" bg-yellow-200 shadow-md">
           <ConnectedRouter history={history}>
             <Header />
             <Route exact path="/" component={PostList} />

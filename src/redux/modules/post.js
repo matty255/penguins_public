@@ -6,7 +6,7 @@ import { firestore, storage } from "../../shared/firebase";
 import moment from "moment";
 
 const post_db = firestore.collection("post");
-//action
+
 const LOAD_POST = "LOAD_POST";
 const ADD_POST = "ADD_POST";
 const UPDATE_POST = "UPDATE_POST";
@@ -49,7 +49,7 @@ const initialPost = {
 };
 
 //middleware
-const loadPostFB = (start = null, size = 3) => {
+const loadPostFB = (start = null, size = 4) => {
   return function (dispatch, getState, { history }) {
     let _paging = getState().post.paging;
 

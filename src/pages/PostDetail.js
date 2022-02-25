@@ -1,12 +1,19 @@
 import React, { useEffect } from "react";
 import { Button, PostText } from "../elements";
-import Post from "../components/Post";
+import PostDetails from "../components/PostDetails";
+import tw from "tailwind-styled-components";
 
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as postActions } from "../redux/modules/post";
 import CommentWrite from "../components/CommentWrite";
 import Permit from "../shared/Permit";
 import CommentList from "../components/CommentList";
+
+
+const Detail = tw.div`
+  flex justify-center font-sanss2 items-center
+  text-yellow-800 p-4 text-lg
+`
 
 const PostDetail = (props) => {
   const dispatch = useDispatch();
@@ -36,8 +43,10 @@ const PostDetail = (props) => {
     <>
       {post && (
         <>
-          <Post {...post} show is_me={post.user_info.user_id === user_info?.uid} />
-          <PostText is_false={true}>{post.contents}</PostText>
+          <PostDetails {...post} show is_me={post.user_info.user_id === user_info?.uid} />
+          
+          <Detail is_false={true}>{post.contents}</Detail>
+
           {post.user_info.user_id === user_info?.uid ? (
             <div className="flex justify-center items-center hover:scale-105">
             <Button _onClick={deletePost}>Delete this Post?</Button>

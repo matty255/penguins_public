@@ -36,12 +36,12 @@ const CommentItem = (props) => {
   const { user_name, comment, user_profile, insert_dt } = props;
   return (
     <div className="flex justify-between items-center">
-      <div className="sm:flex sm:flex-row px-10 sm:justify-between">
+      <div className="flex flex-row px-10 justify-between">
       <hr className="border-4 border-white" />
       <Image shape="circle" src={user_profile} />
       <Text>{user_name}</Text>
-      <span className="flex-shrink-0 flex-grow min-w-1/3 p-2 mb-3 py-2 font-bold sm:bg-yellow-500 sm:bg-opacity-50 rounded-full"><Text>{comment}</Text></span>
-      <Text>{insert_dt}</Text>
+      <span className="flex-shrink-0 flex-grow p-2 mb-3 py-2 font-bold bg-yellow-500 bg-opacity-50 rounded-full"><Text>{comment}</Text></span>
+      <div className="hidden md:contents"><Text>{insert_dt}</Text></div>
       
       </div>
       
