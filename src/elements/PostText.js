@@ -7,6 +7,7 @@ const P = tw.div`
   absolute p-4 text-yellow-800 font-sanss2 shadow-md
   bg-yellow-300 animate-bounce hover:cursor-pointer
   hover:border-yellow-200 hover:border-4
+  transform hover:w-auto
 ${(props) => (props.is_false ? "" : "truncate")};
 ${(props) => (props.layout === "left" ? `ml-60 bg-opacity-75 lg:ml-80` : "")};
 ${(props) => (props.layout === "right" ? `mr-60 bg-opacity-75 lg:mr-80` : "")};
