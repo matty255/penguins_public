@@ -9,11 +9,11 @@ import tw from "tailwind-styled-components";
 import HeartButton from "./HeartButton";
 
 const A = tw.div`
-overflow-hidden justify-center items-center
-${(props) => (props.layout === "left" ? `w-full flex flex-row justify-between` : "bg-yellow-400")};
-${(props) => (props.layout === "right" ? `w-full flex flex-row-reverse justify-between` : "bg-yellow-400")};
-${(props) => (props.layout === "bottom" ? `flex flex-row` : "bg-yellow-400")};
-${(props) => (props.is_detail ? "w-full" : "bg-yellow-400")};
+overflow-hidden justify-center items-center bg-transparent
+${(props) => (props.layout === "left" ? `w-full flex flex-row justify-between` : "")};
+${(props) => (props.layout === "right" ? `w-full flex flex-row-reverse justify-between` : "")};
+${(props) => (props.layout === "bottom" ? `flex flex-row` : "")};
+${(props) => (props.is_detail ? "w-full" : "")};
 `
 
 const Post = (props) => {
@@ -29,7 +29,6 @@ const Post = (props) => {
     layout,
     comment_cnt,
     show,
-    is_detail
   } = props;
 
   useEffect(() => {
@@ -54,15 +53,18 @@ const Post = (props) => {
           </NonGrid>
           </div>
         <div>
-          <NonGrid>
+
+            <div className="p-1 rounded-lg flex flex-row
+    text-yellow-800 font-sanss2 justify-evenly items-center
+    my-3 mx-2 flex-wrap bg-gradient-to-b from-yellow-400 bg-opacity-80">
            {!show && <PostText layout={layout} _onClick={() => {
             history.push(`/post/${id}`);
           }}
            
            >{contents}</PostText> }
             <A layout={layout}><Image half={true} shape="big_square" src={image_url} /></A>
+            </div>
 
-          </NonGrid>
           <NonGrid>
 
             <Text>좋아요 <span className="text-xl">{like_cnt}</span>개</Text>
@@ -94,7 +96,6 @@ Post.defaultProps = {
   comment_cnt: 0,
   insert_dt: "2021-06-30 10:00:00",
   show: false,
-  is_detail: false,
 };
 
 export default Post;

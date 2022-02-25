@@ -24,7 +24,8 @@ const PostList = (props) => {
   
   return (
 
-<div className="p-2 flex flex-row flex-wrap justify-center items-center">
+<div className="p-2 flex flex-row flex-wrap justify-center items-center
+xl:w-10/12 2xl:w-8/12 mx-auto">
     {is_loaded && <Intro />}
       <InfinityScroll
         callNext={() => {

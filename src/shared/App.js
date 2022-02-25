@@ -22,7 +22,7 @@ import NotFound from "../components/NotFound";
 
 const Container = tw.div`
   w-full bg-yellow-300 mx-auto flex
-   justify-center items-center p-2
+   justify-center items-center px-2
   overflow-x-hidden
 `;
 
