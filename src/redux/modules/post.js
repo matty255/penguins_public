@@ -49,7 +49,7 @@ const initialPost = {
 };
 
 //middleware
-const loadPostFB = (start = null, size = 6) => {
+const loadPostFB = (start = null, size = 4) => {
   return function (dispatch, getState, { history }) {
     let _paging = getState().post.paging;
 
