@@ -21,34 +21,28 @@ const DetailImage = tw.img`
 `;
 
 const Image = (props) => {
-  const { src, shape, half } = props;
-
-  const styles = {
-    src,
-    half,
-  };
+  const { src, shape } = props;
 
   if (shape === "circle") {
-    return <CircleImage {...styles} src={src} />;
+    return <CircleImage src={src} />;
   }
 
   if (shape === "detail_square") {
-    return <DetailImage {...styles} src={src} />;
+    return <DetailImage src={src} />;
   }
 
   if (shape === "big_square") {
-    return <BigSquareImage {...styles} src={src} />;
+    return <BigSquareImage src={src} />;
   }
 
   if (shape === "small_square") {
-    return <div className=""><SmallSquareImage {...styles} style={{backgroundImage: `url(${src})`}} /> </div>;
+    return <div className=""><SmallSquareImage style={{backgroundImage: `url(${src})`}} /> </div>;
   }
 };
 
 Image.defaultProps = {
   shape: "circle",
   src: "https://user-images.githubusercontent.com/89088205/155078987-592a07cd-a490-49fc-aabc-bc47cb508963.jpg",
-  half: false,
 };
  
 

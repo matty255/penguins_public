@@ -14,16 +14,10 @@ ${(props) => (props.layout === "bottom" ? `mt-60 bg-opacity-75 lg:mt-80` : "")};
 `;
 
 const PostText = (props) => {
-  const { children, margin, width, bold, _onClick, is_click, center, is_false, layout } =
+  const { children, _onClick, is_false, layout } =
     props;
 
   const styles = {
-    children,
-    margin,
-    width,
-    bold,
-    is_click,
-    center,
     is_false,
     layout
   };
@@ -36,12 +30,7 @@ const PostText = (props) => {
 
 Text.defaultProps = {
   children: null,
-  margin: false,
-  bold: false,
   _onClick: () => {},
-  is_click: false,
-  width: false,
-  center: false,
   is_false : false,
   layout : "bottom"
 };

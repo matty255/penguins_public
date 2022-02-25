@@ -10,7 +10,7 @@ import HeartButton from "./HeartButton";
 
 const A = tw.div`
 overflow-hidden justify-center items-center
-w-full
+w-full flex
 `
 // ${(props) => (props.layout === "left" ? `flex flex-row` : "bg-yellow-400")};
 // ${(props) => (props.layout === "right" ? `flex flex-row` : "bg-yellow-400")};
@@ -58,7 +58,7 @@ const PostDetails = (props) => {
           }}
            
            >{contents}</PostText> }
-            <A layout={layout}>
+            <A>
               
               <Image shape="detail_square" is_detail={true} src={image_url} /></A>
 

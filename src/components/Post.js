@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NonGrid, NonFlexBox, Image, Text, Button, PostText } from "../elements";
+import { NonGrid, Image, Text, Button, PostText } from "../elements";
 
 import { history } from "../redux/configureStore";
 import { useDispatch } from "react-redux";
@@ -48,22 +48,23 @@ const Post = (props) => {
                   _onClick={() => {
                     history.push(`/write/${id}`);
                   }}
-                ><span className="text-xs sm:text-lg">Edit</span></Button>
+                ><span className="text-xs sm:text-lg">Edit
+                </span></Button>
               )}
           </NonGrid>
           </div>
         <div>
 
             <div className="p-1 rounded-lg flex flex-row
-    text-yellow-800 font-sanss2 justify-evenly items-center
-    my-3 mx-2 flex-wrap bg-gradient-to-b from-yellow-400 bg-opacity-80">
-           {!show && <PostText layout={layout} _onClick={() => {
-            history.push(`/post/${id}`);
-          }}
-           
-           >{contents}</PostText> }
-            <A layout={layout}><Image half={true} shape="big_square" src={image_url} /></A>
-            </div>
+          text-yellow-800 font-sanss2 justify-evenly items-center
+            my-3 mx-2 flex-wrap bg-gradient-to-b from-yellow-400 bg-opacity-80">
+            {!show && <PostText layout={layout} _onClick={() => {
+              history.push(`/post/${id}`);
+            }}
+            
+            >{contents}</PostText> }
+              <A layout={layout}><Image shape="big_square" src={image_url} /></A>
+              </div>
 
           <NonGrid>
 

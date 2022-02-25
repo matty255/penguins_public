@@ -120,7 +120,6 @@ const WritePost = (props) => {
         <div className="flex flex-row-reverse px-4">
           <PostText layout={"right"}>{input}</PostText>
          <Image
-          half={true}
           shape="big_square"
           src={
             preview
@@ -150,7 +149,6 @@ const WritePost = (props) => {
       </NonFlexBox>
       <div className="flex flex-row px-4">
         <Image
-          half={true}
           shape="big_square"
           src={
             preview
