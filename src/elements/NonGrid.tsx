@@ -1,6 +1,10 @@
 import React from "react";
 import tw from "tailwind-styled-components";
 
+interface NonNonGridProps {
+  children: React.ReactNode;
+  _onClick?: ()=> void;
+}
 
 const Btime = tw.div` 
     bg-yellow-400 p-1 rounded-lg flex flex-row
@@ -8,35 +12,23 @@ const Btime = tw.div`
     border-x-4 border-yellow-300 shadow-md my-3 mx-2 flex-wrap
 ` 
 
-const NonGrid = (props) => {
+const NonGrid: React.FC<NonNonGridProps> = (props) => {
   const {
     children,
-    is_flex,
     _onClick,
-    is_main,
   } = props;
 
-  const styles = {
-    is_flex,
-    is_main,
-  };
   return (
       <React.Fragment>
-    <Btime {...styles} onClick={_onClick}>
-      {children}
-    </Btime>
+      <Btime onClick={_onClick}>
+        {children}
+      </Btime>
     </React.Fragment>
   );
 };
 
 NonGrid.defaultProps = {
   children: null,
-  is_flex: false,
-  width: "100%",
-  padding: false,
-  margin: false,
-  bg: false,
-  relative: false,
   _onClick: () => {},
 };
 

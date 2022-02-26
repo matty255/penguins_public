@@ -4,9 +4,21 @@ import { Image, Text } from "../elements";
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as commentActions } from "../redux/modules/comment";
 
-const CommentList = (props) => {
+interface CommentListProps {
+  state: any;
+  post_id : string;
+}
+
+interface CommentItemProps { 
+  post_id: string;
+  user_name: string; 
+  comment: string; 
+  user_profile: string; 
+  insert_dt: Date; }
+
+const CommentList: React.FC<CommentListProps> = (props:CommentListProps) => {
   const dispatch = useDispatch();
-  const comment_list = useSelector((state) => state.comment.list);
+  const comment_list = useSelector((state => state.comment.list));
 
   const { post_id } = props;
 
@@ -32,7 +44,7 @@ const CommentList = (props) => {
     );
   };
 
-const CommentItem = (props) => {
+const CommentItem = (props: CommentItemProps) => {
   const { user_name, comment, user_profile, insert_dt } = props;
   return (
     <div className="flex justify-between items-center">

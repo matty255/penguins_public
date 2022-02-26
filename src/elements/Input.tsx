@@ -1,6 +1,19 @@
-import React from "react";
+import React, { KeyboardEvent } from "react";
 import { Text } from "../elements";
 import tw from "tailwind-styled-components";
+
+interface InputProps {
+  label?: boolean,
+  type: string,
+  placeholder: string,
+  value: string,
+  is_submit?: boolean,
+  key?: string;
+  is_upload?: boolean,
+  textarea?: boolean,
+  _onChange: ()=> void;
+  _onSubmit: (e: KeyboardEvent<HTMLInputElement>)=> void;
+}
 
 const InputStyles = tw.input`
     w-full px-3 py-2 leading-tight text-yellow-700 text-lg
@@ -8,13 +21,12 @@ const InputStyles = tw.input`
     focus-visible:ring-yellow-200 outline-none
 `
 const TextAreaField = tw.textarea`
-  ${(props) => (props.is_upload ? "hidden" : "")}
   w-full box-border px-5 py-4 text-yellow-700 text-lg
   border-1 rounded-md shadow-md hover:ring-4 hover:ring-yellow-300
     focus-visible:ring-yellow-200 outline-none
 `;
 
-const Input = (props) => {
+const Input: React.FC<InputProps> = (props) => {
   const {
     label,
     type,
@@ -24,8 +36,6 @@ const Input = (props) => {
     is_submit,
     _onSubmit,
     textarea,
-    margin,
-    width,
   } = props;
 
   if (is_submit) {
@@ -37,7 +47,7 @@ const Input = (props) => {
           value={value}
           placeholder={placeholder}
           onChange={_onChange}
-          onKeyPress={(e) => {
+          onKeyPress={(e: KeyboardEvent<HTMLInputElement>) => {
             if (e.key === "Enter") {
               _onSubmit(e);
             }
@@ -66,7 +76,6 @@ const Input = (props) => {
           value={value}
           placeholder={placeholder}
           onChange={_onChange}
-          style={{ margin, width }}
         />
       </label>
     );

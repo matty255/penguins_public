@@ -1,21 +1,23 @@
 import React from "react";
 import tw from "tailwind-styled-components";
 
+interface TextProps {
+  children: React.ReactNode;
+  _onClick?: ()=> void; 
+  is_click?: string; 
+}
+
 const P = tw.p`
   text-base text-yellow-800 font-sanss2
 `;
 
-const Text = (props) => {
-  const { children, margin, width, bold, _onClick, is_click, center } =
+const Text:React.FC<TextProps> = (props:TextProps) => {
+  const { children, _onClick, is_click } =
     props;
 
   const styles = {
     children,
-    margin,
-    width,
-    bold,
     is_click,
-    center,
   };
   return (
     <P {...styles} onClick={_onClick}>
@@ -26,12 +28,7 @@ const Text = (props) => {
 
 Text.defaultProps = {
   children: null,
-  margin: false,
-  bold: false,
   _onClick: () => {},
-  is_click: false,
-  width: false,
-  center: false,
 };
 
 

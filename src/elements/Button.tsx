@@ -1,6 +1,12 @@
 import React from "react";
 import tw from "tailwind-styled-components";
 
+interface ButtonProps {
+  children?: React.ReactNode;
+  _disabled: boolean;
+  _onClick?: ()=> void;
+}
+
 const Btn = tw.button`
   font-sanss2 shadow-md box-border 
   rounded-md p-2 py-2 text-white
@@ -8,7 +14,7 @@ const Btn = tw.button`
   ${(props) => (props.disabled ? "cursor-default" : "cursor-pointer")};
 `;
 
-const Button = (props) => {
+const Button: React.FC<ButtonProps> = (props) => {
   const {
     children,
     _disabled,

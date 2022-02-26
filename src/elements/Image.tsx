@@ -1,6 +1,11 @@
 import React from "react";
 import tw from "tailwind-styled-components";
 
+interface ImageProps {
+  shape: string;
+  src?: string;
+}
+
 const CircleImage = tw.img`
   bg-cover rounded-full m-1 w-12 h-12 border-2 border-yellow-200
   shadow-md 
@@ -20,7 +25,7 @@ const DetailImage = tw.img`
   rounded-xl bg-center bg-contain md:max-w-xl max-w-sx
 `;
 
-const Image = (props) => {
+const Image: React.FC<ImageProps> = (props) => {
   const { src, shape } = props;
 
   if (shape === "circle") {
