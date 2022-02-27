@@ -18,7 +18,7 @@ interface CommentItemProps {
 
 const CommentList: React.FC<CommentListProps> = (props:CommentListProps) => {
   const dispatch = useDispatch();
-  const comment_list = useSelector((state => state.comment.list));
+  const comment_list = useSelector(((state: any) => state.comment.list));
 
   const { post_id } = props;
 

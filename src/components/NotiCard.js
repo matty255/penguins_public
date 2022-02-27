@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, Text, NonFlexBox } from "../elements";
 
-import { history } from "../redux/configureStore";
+import { history } from "../redux/configureStore.js";
 import tw from "tailwind-styled-components";
 
 const CommentStyles = tw.span` 

@@ -4,7 +4,12 @@ import { Input, Button } from "../elements";
 import { useDispatch } from "react-redux";
 import { actionCreators as commentActions } from "../redux/modules/comment";
 
-const CommentWrite = (props) => {
+interface CommentWriteProps {
+  state: any;
+  post_id : string;
+}
+
+const CommentWrite: React.FC<CommentWriteProps> = (props:CommentWriteProps) => {
   const dispatch = useDispatch();
   const [comment, setComment] = useState("");
 

@@ -2,17 +2,22 @@ import React, { useEffect, useState } from "react";
 import { Text } from "../elements";
 
 import { apiKey } from "../shared/firebase";
-import { history } from "../redux/configureStore";
+import { history } from "../redux/configureStore.js";
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as likeActions } from "../redux/modules/like";
 
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
-const HeartButton = (props) => {
+interface HeartButtonProps {
+  state: any;
+  post_id : string;
+}
+
+const HeartButton: React.FC <HeartButtonProps> = (props: HeartButtonProps) => {
   const dispatch = useDispatch();
-  const like_list = useSelector((state) => state.like.list);
-  const user_info = useSelector((state) => state.user.user);
+  const like_list = useSelector((state: any) => state.like.list);
+  const user_info = useSelector((state: any) => state.user.user);
 
   const _session_key = `firebase:authUser:${apiKey}:[DEFAULT]`;
   const is_session = sessionStorage.getItem(_session_key) ? true : false;

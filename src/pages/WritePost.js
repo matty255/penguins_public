@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { NonGrid, Input, Button, Image, Text, NonFlexBox, Intro, PostText } from "../elements";
 import Upload from "../components/Upload";
 
-import { history } from "../redux/configureStore";
+import { history } from "../redux/configureStore.js";
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as postActions } from "../redux/modules/post";
 import { actionCreators as imageActions } from "../redux/modules/image";

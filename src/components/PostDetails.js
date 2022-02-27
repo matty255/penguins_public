@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { NonGrid, Image, Text, Button, PostText } from "../elements";
 
-import { history } from "../redux/configureStore";
+import { history } from "../redux/configureStore.js";
 import { useDispatch } from "react-redux";
 import { actionCreators as likeActions } from "../redux/modules/like";
 import tw from "tailwind-styled-components";
 
-import HeartButton from "./HeartButton";
+import HeartButton from "./HeartButton.tsx";
 
 const A = tw.div`
 overflow-hidden justify-center items-center

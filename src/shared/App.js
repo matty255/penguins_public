@@ -4,7 +4,7 @@ import { ConnectedRouter } from "connected-react-router";
 import React, { useState, useEffect } from "react";
 import tw from "tailwind-styled-components";
 
-import { history } from "../redux/configureStore";
+import { history } from "../redux/configureStore.js";
 import { apiKey } from "./firebase";
 import { useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
@@ -12,13 +12,13 @@ import { actionCreators as userActions } from "../redux/modules/user";
 import PostList from "../pages/PostList";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
-import Header from "../components/Header";
+import Header from "../components/Header.tsx";
 import WritePost from "../pages/WritePost";
 
 import PostDetail from "../pages/PostDetail";
 import Caution from "../pages/Caution";
 import NotiDetail from "../pages/NotiDetail";
-import NotFound from "../components/NotFound";
+import NotFound from "../components/NotFound.tsx";
 
 const Container = tw.div`
   w-full bg-yellow-300 mx-auto flex

@@ -3,8 +3,7 @@ import { Button } from "../elements";
 
 import { useHistory } from "react-router-dom";
 
-
-const NotFound = (props) => {
+const NotFound = () => {
   let history = useHistory();
   return (
     <div className="flex flex-col p-3 justify-center items-center">

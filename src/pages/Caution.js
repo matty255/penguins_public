@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, Button, NonFlexBox } from "../elements";
 
-import { history } from "../redux/configureStore";
+import { history } from "../redux/configureStore.js";
 
 const Caution = (props) => {
   return (

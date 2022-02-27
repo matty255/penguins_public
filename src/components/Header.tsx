@@ -4,7 +4,7 @@ import { NonGrid, Button, Text, Image, Title } from "../elements";
 import NotiBadge from "./NotiBadge";
 import Permit from "../shared/Permit";
 
-import { history } from "../redux/configureStore";
+import { history } from "../redux/configureStore.js";
 import { useSelector, useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
 import { apiKey } from "../shared/firebase";
@@ -12,12 +12,16 @@ import { apiKey } from "../shared/firebase";
 import LoyaltyIcon from '@mui/icons-material/Loyalty';
 import CancelIcon from '@mui/icons-material/Cancel';
 
+interface HeaderProps {
+  state: any;
+  post_id: string;
+  src?: string;
+}
 
-
-const Header = (props) => {
+const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
   const dispatch = useDispatch();
-  const is_login = useSelector((state) => state.user.user);
-  const user_info = useSelector((state) => state.user.user);
+  const is_login = useSelector((state: any) => state.user.user);
+  const user_info = useSelector((state: any) => state.user.user);
 
   const _session_key = `firebase:authUser:${apiKey}:[DEFAULT]`;
   const is_session = sessionStorage.getItem(_session_key) ? true : false;
