@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import { Button, PostText } from "../elements";
+import { Button } from "../elements";
 import PostDetails from "../components/PostDetails";
 import tw from "tailwind-styled-components";
 
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators as postActions } from "../redux/modules/post";
-import CommentWrite from "../components/CommentWrite.tsx";
+import CommentWrite from "../components/CommentWrite";
 import Permit from "../shared/Permit";
-import CommentList from "../components/CommentList.tsx";
+import CommentList from "../components/CommentList";
 
 
 const Detail = tw.div`

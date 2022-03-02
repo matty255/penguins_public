@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { actionCreators as likeActions } from "../redux/modules/like";
 import tw from "tailwind-styled-components";
 
-import HeartButton from "./HeartButton.tsx";
+import HeartButton from "./HeartButton";
 
 const A = tw.div`
 overflow-hidden justify-center items-center bg-transparent

@@ -1,24 +1,25 @@
 import { Route } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
-
-import React, { useState, useEffect } from "react";
+import React, { useEffect, Suspense, lazy } from "react";
 import tw from "tailwind-styled-components";
 
 import { history } from "../redux/configureStore.js";
 import { apiKey } from "./firebase";
 import { useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
+import { Intro } from "../elements";
 
-import PostList from "../pages/PostList";
-import Login from "../pages/Login";
-import Signup from "../pages/Signup";
-import Header from "../components/Header.tsx";
-import WritePost from "../pages/WritePost";
+const PostList = lazy(() => import("../pages/PostList"));
+const Login = lazy(() => import("../pages/Login"));
+const Signup = lazy(() => import("../pages/Signup"));
+const Header = lazy(() => import("../components/Header"));
+const WritePost = lazy(() => import("../pages/Signup"));
+const PostDetail = lazy(() => import("../pages/PostDetail"));
+const Caution = lazy(() => import("../pages/Caution"));
+const NotiDetail = lazy(() => import("../pages/NotiDetail"));
+const NotFound = lazy(() => import("../components/NotFound"));
 
-import PostDetail from "../pages/PostDetail";
-import Caution from "../pages/Caution";
-import NotiDetail from "../pages/NotiDetail";
-import NotFound from "../components/NotFound.tsx";
+
 
 const Container = tw.div`
   w-full bg-yellow-300 mx-auto flex
@@ -42,8 +43,10 @@ function App() {
   return (
     <div className="App">
       <Container>
+      
         <div className=" bg-yellow-200 shadow-md">
           <ConnectedRouter history={history}>
+          <Suspense fallback={<Intro />}>
             <Header />
             <Route exact path="/" component={PostList} />
             <Route exact path="/login" component={Login} />
@@ -54,6 +57,7 @@ function App() {
             <Route exact path="/noti" component={NotiDetail} />
             <Route exact path="/caution" component={Caution} />
             <Route component={NotFound} />
+            </Suspense>
           </ConnectedRouter>
           </div>
       </Container>

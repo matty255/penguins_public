@@ -1,16 +1,16 @@
-import React, { useEffect, useCallback, useState } from "react";
+
+import React, { useEffect, Suspense, lazy } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { actionCreators as postActions } from "../redux/modules/post";
 
-import Post from "../components/Post";
 import { Intro } from "../elements";
-import InfinityScroll from "../shared/InfinityScroll";
+const Post = lazy(() => import("../components/Post"));
+const InfinityScroll = lazy(() => import("../shared/InfinityScroll"));
 
 const PostList = (props) => {
   const dispatch = useDispatch();
   const { list, is_loading, paging } = useSelector((state) => state.post);
   const user = useSelector((state) => state.user?.user);
-  let [ is_loaded, setIsLoaded ] = useState(true);
 
   useEffect(() => {
     if (list.length < 2) {
@@ -18,15 +18,13 @@ const PostList = (props) => {
     }
   }, []);
 
-  useEffect(() => {
-    setTimeout(()=>{ setIsLoaded(false) }, 1000);
-}, [is_loaded])
+
   
   return (
 
 <div className="p-2 flex flex-row flex-wrap justify-center items-center
 xl:w-10/12 2xl:w-8/12 mx-auto">
-    {is_loaded && <Intro />}
+    <Suspense fallback={<Intro />}>
       <InfinityScroll
         callNext={() => {
           dispatch(postActions.loadPostFB(paging.next));
@@ -44,6 +42,7 @@ xl:w-10/12 2xl:w-8/12 mx-auto">
           }
         })}
       </InfinityScroll>
+      </Suspense>
       </div>
   );
 };
