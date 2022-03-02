@@ -72,6 +72,7 @@ LCP 4.2초 -> 1.8 ~ 2.0초 (크롬 플러그인으로 돌렸을 때)
 이 사이트에서 돌리면 0.9초 https://pagespeed.web.dev/ 여기서 돌리세여
 
  - 시도한 방법 1. 스피너 의무적으로 3초 띄웠던거 삭제하고 랜딩페이지(App.js랑 PostList.js, Header.js)에 리액트 내장 플러그인인 lazy, Suspense 사용!  
+                 포스트 자체는 이미 무한스크롤이 적용되어 있어서 따로 레이지로딩 처리를 하진 않았음!
  
  - 시도한 방법 2. 사용하지 않는 import된 모듈들 제거하고 쓰지 않는 것들은 package.json에서 yarn remove로 다 삭제 
  
