@@ -1,6 +1,6 @@
 import React from "react";
 
-import { NonGrid, Button, Text, Image, Title } from "../elements";
+import { NonGrid, Button, Title } from "../elements";
 import NotiBadge from "./NotiBadge";
 import Permit from "../shared/Permit";
 
@@ -21,8 +21,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
   const dispatch = useDispatch();
   const is_login = useSelector((state: any) => state.user.user);
-  const user_info = useSelector((state: any) => state.user.user);
-
+  
   const _session_key = `firebase:authUser:${apiKey}:[DEFAULT]`;
   const is_session = sessionStorage.getItem(_session_key) ? true : false;
 
@@ -36,7 +35,7 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
                 Penguins
         </Title>
       
-          <div className="hidden lg:contents">
+          {/* <div className="hidden lg:contents">
             <div className="flex items-end p-1 px-10">
               <Image shape="circle" src={props.src} />
               <Text>
@@ -44,7 +43,7 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
               </Text>
               </div>
 
-          </div>
+          </div> */}
 
           <Permit>
             <Button 
