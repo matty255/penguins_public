@@ -1,7 +1,10 @@
-import React, { Suspense, lazy } from "react";
-import { NonGrid } from "../elements";
+import React from "react";
 
-import { history } from "../redux/configureStore.js";
+import { NonGrid, Button, Text, Image, Title } from "../elements";
+import NotiBadge from "./NotiBadge";
+import Permit from "../shared/Permit";
+
+import { history } from "../redux/configureStore";
 import { useSelector, useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
 import { apiKey } from "../shared/firebase";
@@ -9,15 +12,13 @@ import { apiKey } from "../shared/firebase";
 import LoyaltyIcon from '@mui/icons-material/Loyalty';
 import CancelIcon from '@mui/icons-material/Cancel';
 
-const Permit = lazy(() => import("../shared/Permit"));
-const NotiBadge = lazy(() => import("./NotiBadge"));
-const Button = lazy(() => import("../elements/Button"));
-const Title = lazy(() => import("../elements/Title"));
+
 
 const Header = (props) => {
   const dispatch = useDispatch();
   const is_login = useSelector((state) => state.user.user);
-  
+  const user_info = useSelector((state) => state.user.user);
+
   const _session_key = `firebase:authUser:${apiKey}:[DEFAULT]`;
   const is_session = sessionStorage.getItem(_session_key) ? true : false;
 
@@ -31,7 +32,7 @@ const Header = (props) => {
                 Penguins
         </Title>
       
-          {/* <div className="hidden lg:contents">
+          <div className="hidden lg:contents">
             <div className="flex items-end p-1 px-10">
               <Image shape="circle" src={props.src} />
               <Text>
@@ -39,7 +40,7 @@ const Header = (props) => {
               </Text>
               </div>
 
-          </div> */}
+          </div>
 
           <Permit>
             <Button 
@@ -69,13 +70,11 @@ const Header = (props) => {
               </Button>
             </Permit>
           </div>
-
       </NonGrid>
     );
   }
   return (
     <NonGrid>
-      <Suspense fallback={<div>Loading...</div>}>
         <Title _onClick={() => {
               window.location.replace("/");
             }}>
@@ -99,7 +98,6 @@ const Header = (props) => {
               로그인
             </Button>
             </div>
-            </Suspense>
         </NonGrid>
       );
     };
