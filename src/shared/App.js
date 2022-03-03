@@ -13,7 +13,7 @@ const PostList = lazy(() => import("../pages/PostList"));
 const Login = lazy(() => import("../pages/Login"));
 const Signup = lazy(() => import("../pages/Signup"));
 const Header = lazy(() => import("../components/Header"));
-const WritePost = lazy(() => import("../pages/Signup"));
+const WritePost = lazy(() => import("../pages/WritePost"));
 const PostDetail = lazy(() => import("../pages/PostDetail"));
 const Caution = lazy(() => import("../pages/Caution"));
 const NotiDetail = lazy(() => import("../pages/NotiDetail"));

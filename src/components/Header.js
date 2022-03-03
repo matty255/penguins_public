@@ -24,7 +24,7 @@ const Header = (props) => {
   if (is_login && is_session) {
     return (
       <NonGrid>
-        <Suspense fallback={<div>Loading...</div>}>
+
         <Title _onClick={() => {
               window.location.replace("/");
             }}>
@@ -69,7 +69,7 @@ const Header = (props) => {
               </Button>
             </Permit>
           </div>
-          </Suspense>
+
       </NonGrid>
     );
   }
