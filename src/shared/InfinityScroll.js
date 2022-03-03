@@ -15,7 +15,7 @@ const InfinityScroll = (props) => {
     const { innerHeight } = window;
     const { scrollHeight } = document.body;
 
-    // 브라우저 마다 scrollTop 을 불러오는 형식이 달라서, 호완성을 위해
+    // 브라우저 마다 scrollTop 을 불러오는 형식이 달라서, 호환성을 위해
     const scrollTop =
       (document.documentElement && document.documentElement.scrollTop) ||
       document.body.scrollTop;
